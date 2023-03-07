@@ -1,0 +1,62 @@
+train_dataset: tiered_imagenet
+train_dataset_path:
+val_dataset: tiered_imagenet
+val_dataset_path:
+test_dataset: tiered_imagenet
+test_dataset_path:
+
+# resume training
+checkpoint_dir: 
+# load path of pretrained model
+load_dir:
+
+# model
+model: meta-baseline
+model_args:
+  backbone: Conv4
+  backbone_args: {}
+  # for pre-training
+  classifier: linear-classifier
+  classifier_args: 
+    n_classes: 64
+    dropout_rate: 0
+  # for meta-training
+  meta_args:
+    metric: cosine
+  mtd_args: 
+    attention:
+    temp:
+freeze_bn: False
+
+# optimizer
+loss: cross_entropy
+backbone_optimizer: sgd
+bk_optimizer_args:
+  lr: 0.0001       # initial learning rate for encoder
+  gamma: 0.1    # learning rate decay factor
+  milestones: [40, 80]   # milestones for MultiStepLR
+  weight_decay: 0.0005
+classifier_optimizer: sgd
+cls_optimizer_args:
+  lr: 0.01       # initial learning rate for linear layer
+  gamma: 0.1    # learning rate decay factor
+  milestones: [40, 80]   # milestones for MultiStepLR
+  weight_decay: 0.0005
+
+
+# meta training
+epoch: 100
+train_n_episode: 1000   # number of episodes in meta training for one epoch
+val_n_episode: 600
+test_n_episode: 2000
+test_task_num: 5
+batch_size: 128   # for pre-training: batch size; for episodic: batch size = 1
+
+# episodic settings
+n_way: 5       # ways of single task.
+n_shot: 1      # supports per class of single task.
+n_query: 15    # querys per class of single task.
+
+# other settings
+input_size: 28    # input image size, 84 for miniImagenet and tieredImagenet, 28 for Omniglot
+save_freq: 20     # the frequency of saving model
