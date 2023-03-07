@@ -51,6 +51,6 @@ There are five parts in the code:
 
 Our project references the codes in the following repos.
 
-- [meta-baseline](https://openaccess.thecvf.com/content/ICCV2021/html/Chen_Meta-Baseline_Exploring_Simple_Meta-Learning_for_Few-Shot_Learning_ICCV_2021_paper.html)
+- [meta-baseline](https://github.com/yinboc/few-shot-meta-baseline)
 
-- [matching networks](https://proceedings.neurips.cc/paper/2016/hash/90e1357833654983612fb05e3ec9148c-Abstract.html)
+- [matching networks](https://github.com/activatedgeek/Matching-Networks)
