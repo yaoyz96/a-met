@@ -11,9 +11,7 @@ The following packages are required to run the scripts:
 
 ## Datasets
 
-For Omniglot, we use two data split settings in the experiments. The common data setting flattens and ignores its two-level hierarchy of alphabets and characters [1]. Another setting is the original split proposed by Lake et al. [2], which is more challenging since the split is on the alphabets level.
-
-For mini-ImageNet, we used the data split proposed by Ravi and Larochelle [3] in the experiments.
+For Omniglot, the data split settings is proposed by [1,2]. For mini-ImageNet, the data split is proposed by [3].
 
 [1] Vinyals O, Blundell C, Lillicrap T, et al. Matching networks for one shot learning[J]. Advances in neural information processing systems, 2016, 29.
 
